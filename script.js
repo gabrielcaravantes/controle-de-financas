@@ -10,6 +10,12 @@ const total = document.querySelector(".total");
 
 let items;
 
+function deleteItem(index) {
+    items.splice(index, 1);
+    setItensBD();
+    loadItens();
+}
+
 function insertItem(item, index) {
     let tr = document.createElement("tr");
 
@@ -24,7 +30,9 @@ function insertItem(item, index) {
     <td class="columnAction">
         <button onclick="deleteItem(${index})"><i class='bx-bx-trash'></i></button>
         </td>
-    `
+    `;
+
+    tbody.appendChild(tr);
 }
 
 function loadItens() {
